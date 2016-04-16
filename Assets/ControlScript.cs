@@ -23,7 +23,7 @@ public class ControlScript : MonoBehaviour {
 		rb.MoveRotation(rb.rotation + RotationSpeed * Time.fixedDeltaTime);
 
 		//t.forward
-		//if (Input.GetKey(KeyCode.W)) pos.y += 0.05f;
-		//if (Input.GetKey(KeyCode.S)) pos.y -= 0.05f;
+		if (Input.GetKey(KeyCode.W)) rb.AddRelativeForce(new Vector2(0f, 1f));
+		if (Input.GetKey(KeyCode.S)) rb.AddRelativeForce(new Vector2(0f, -1f));
 	}
 }
