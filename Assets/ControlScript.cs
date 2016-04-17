@@ -7,17 +7,19 @@ public class ControlScript : MonoBehaviour {
 
 	float RotationSpeed = 0f;
 
+	Rigidbody2D rb;
+
 	// Use this for initialization
 	void Start() {
 //		Vector2 com = GetComponentInParent<Rigidbody2D>().centerOfMass;
 //		com.y -= 0.1f;
 //		GetComponentInParent<Rigidbody2D>().centerOfMass = com;
+
+		rb = GetComponentInParent<Rigidbody2D>();
 	}
 
-	// Update is called once per frame
+	// FixedUpdate is called once per physics tick (?)
 	void FixedUpdate() {
-		Rigidbody2D rb = GetComponentInParent<Rigidbody2D>();
-
 		if (Input.GetKey(KeyCode.D)) RotationSpeed += -ROTATESPEED;
 		if (Input.GetKey(KeyCode.A)) RotationSpeed += ROTATESPEED;
 		rb.MoveRotation(rb.rotation + RotationSpeed * Time.fixedDeltaTime);
